@@ -11,11 +11,11 @@ import {
     InputSection,
     SubmitButton
 } from "./ContactForm.styled";
-import { getContacts } from "../../../redux/selectors";
+import { selectContacts } from "../../../redux/selectors";
 
 export default function ContactForm() {
     const dispatch = useDispatch();
-    const contacts = useSelector(getContacts); 
+    const contacts = useSelector(selectContacts); 
     const handleSubmitForm = (event) => {
         event.preventDefault(); 
         const form = event.target; 

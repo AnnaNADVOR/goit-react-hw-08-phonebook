@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const Form = styled.form `
    padding: 0 10px;
    margin: 0 auto;
-   border-bottom: 1px solid ${({ theme }) => theme.colors.lightGrey};
+   border-bottom: 1px solid ${({ theme }) => theme.colors.backGroungGradient};
      
 `
 

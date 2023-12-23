@@ -3,15 +3,15 @@ import { Section} from "./Filter.styled";
 import { FormField, Label, Input, InputSection } from "../ContactForm/ContactForm.styled";
 import { useSelector, useDispatch } from 'react-redux';
 import { setFilter } from "../../../redux/filterSlice";
-import { getContacts, getError, getFilter, getIsLoading } from "../../../redux/selectors";
+import { selectContacts, selectError, selectFilter, selectIsLoading } from "../../../redux/selectors";
 
 import Notification from "../Notification/Notification";
 
 function ContactSearch() { 
-    const contacts = useSelector(getContacts); 
-    const filterValue = useSelector(getFilter); 
-    const loader = useSelector(getIsLoading);
-    const error = useSelector(getError);
+    const contacts = useSelector(selectContacts); 
+    const filterValue = useSelector(selectFilter); 
+    const loader = useSelector(selectIsLoading);
+    const error = useSelector(selectError);
     const dispatch = useDispatch(); 
     const onChange = event => {
         dispatch(setFilter(event.currentTarget.value.trim()));
