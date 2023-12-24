@@ -1,23 +1,28 @@
-const { NavLink } = require("react-router-dom");
+import AuthNav from "components/AuthNav/AuthNav";
+import {
+  Nav,
+  Link,
+  NavList, 
+  NavItem,
+  Logo,
+  LogoPath,
+} from "./NavBar.styled"; 
 
 function Navbar() {
-    return (
-        <nav>
-            <ul>
-                <li>
-                  <NavLink to="/">Phonebook</NavLink>  
-          </li>
-                          {/* <li>
-                  <NavLink to="/contacts">Contacts</NavLink>  
-                </li> */}
-                <li>
-                  <NavLink to="/login">Login</NavLink>  
-          </li>
-                          <li>
-                  <NavLink to="/register">Register</NavLink>  
-                </li>
-            </ul>            
-        </nav>
+  return (
+    <>
+      <Nav>
+        <NavList>
+          <NavItem>
+            <Link to="/">Home</Link>  
+          </NavItem>
+            <NavItem>
+          <Link to="/contacts"><Logo>Phone<LogoPath>book</LogoPath></Logo></Link>  
+        </NavItem>
+      </NavList>       
+    </Nav>
+    <AuthNav/> 
+    </>
     )
 }
 

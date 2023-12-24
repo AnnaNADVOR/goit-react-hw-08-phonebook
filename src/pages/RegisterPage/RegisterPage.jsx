@@ -1,7 +1,17 @@
-const { default: RegisterForm } = require("components/RegisterForm/RegisterForm");
+import RegisterForm from "../../components/RegisterForm/RegisterForm";
+import {
+    FormSection,
+    FormContainer,
+} from "./RegisterPage.styled";
 
 function RegisterPage() {
-    return (<RegisterForm/>)
+    return (
+        <FormSection>
+            <FormContainer> 
+                <RegisterForm />
+            </FormContainer> 
+        </FormSection>      
+    )
 }
 
 export default RegisterPage; 

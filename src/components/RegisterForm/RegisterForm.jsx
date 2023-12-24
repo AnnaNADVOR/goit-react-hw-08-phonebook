@@ -2,33 +2,46 @@ import { BsFillPersonFill, BsCheck2Square} from "react-icons/bs";
 import { IoLockClosed } from "react-icons/io5";
 import { HiEnvelope } from "react-icons/hi2";
 
+import {
+    Label,
+    Input,
+    InputSection,
+    SubmitButton,
+} from "components/PhoneBook/ContactForm/ContactForm.styled";
+
+import {
+    Form,
+    FormTitle,
+    FormField,
+} from "./RegisterForm.styled";
+
 function RegisterForm() {
-    return (
-         <form>
-            <b>Join us. It`s free!</b>
-            <div>
-                <label type="text" htmlFor="userName">User name</label>
-                <div>
-                    <input name="userName" placeholder="Name Surname"></input>
+    return ( 
+        <Form>
+            <FormTitle>Join us. It`s free!</FormTitle>
+            <FormField>
+                <Label type="text" htmlFor="userName">User name</Label>
+                <InputSection>
+                    <Input name="userName" placeholder="Name Surname"></Input>
                      <BsFillPersonFill />
-                </div>
-            </div>
-            <div>
-                <label type="email" htmlFor="userEmail">Email</label>
-                <div>
-                    <input name="userEmail" placeholder="user@email.com"></input>
+                </InputSection>
+            </FormField>
+            <FormField>
+                <Label type="email" htmlFor="userEmail">Email</Label>
+                <InputSection>
+                    <Input name="userEmail" placeholder="user@email.com"></Input>
                     <HiEnvelope/>
-                </div>
-            </div>
-            <div>
-                <label type="password" htmlFor="userPassword">Password</label>
-                <div>
-                    <input name="userPassword" placeholder="********"></input>
+                </InputSection>
+            </FormField>
+            <FormField>
+                <Label type="password" htmlFor="userPassword">Password</Label>
+                <InputSection>
+                    <Input name="userPassword" placeholder="********"></Input>
                     <IoLockClosed />
-                </div>
-            </div>
-            <button>Signup <BsCheck2Square /></button>
-        </form>
+                </InputSection>
+            </FormField>
+            <SubmitButton type="submit">Signup <BsCheck2Square /></SubmitButton>
+        </Form>     
     )
 }
 

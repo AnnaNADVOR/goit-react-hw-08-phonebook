@@ -6,7 +6,7 @@ function Loader( ) {
     return (
         <LoaderContainer>
             <ThreeDots
-                color='#6495ED'
+                color='#2c786c'
                 height="50"
                 width="50"
                 radius="6"

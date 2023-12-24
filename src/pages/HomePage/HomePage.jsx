@@ -1,13 +1,18 @@
-import { HomeSection } from "./HomePage.styled"; 
-import { MdConnectWithoutContact } from "react-icons/md";
+import {
+    HomeSection,
+    HomeTitle,
+    Logo,
+    LogoPath,
+    HomeContainer,   
+} from "./HomePage.styled"; 
+
 function HomePage() {
     return (
         <HomeSection>
-            <div>                
-                <h1>Welcome to <span>Phone<span>book</span></span></h1>
+            <HomeContainer>                
+                <HomeTitle>Welcome to <Logo>Phone<LogoPath>book</LogoPath></Logo></HomeTitle>
                 <p>Save the most important contacts to always be in touch!</p>  
-                <MdConnectWithoutContact />
-            </div>
+            </HomeContainer>
         </HomeSection>
     )
 }

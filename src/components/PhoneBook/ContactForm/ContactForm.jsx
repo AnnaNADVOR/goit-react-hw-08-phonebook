@@ -9,7 +9,8 @@ import {
     Label,
     Input,
     InputSection,
-    SubmitButton
+    SubmitButton,
+    FormTitle,
 } from "./ContactForm.styled";
 import { selectContacts } from "../../../redux/selectors";
 
@@ -35,6 +36,7 @@ export default function ContactForm() {
 
     return (
         <Form onSubmit={handleSubmitForm}> 
+            <FormTitle>Create a contact</FormTitle>
             <FormField>
                 <Label>Name</Label>
                 <InputSection>
@@ -63,7 +65,7 @@ export default function ContactForm() {
                         <BsFillTelephoneFill />
                     </InputSection>                    
             </FormField>                               
-            <SubmitButton type="submit">Add contact
+            <SubmitButton type="submit">Save
                 <BsFillPersonPlusFill />
             </SubmitButton>
         </Form>        

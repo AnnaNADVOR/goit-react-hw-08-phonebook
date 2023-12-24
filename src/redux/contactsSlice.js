@@ -16,6 +16,7 @@ export const contactsSlice = createSlice({
         contactsList: [],
         isLoading: false,
         error: null,
+        deleteContactId: null, 
     },
     extraReducers: builder => {
         builder
@@ -35,7 +36,10 @@ export const contactsSlice = createSlice({
             })
             .addCase(addContact.rejected, handleRejected)  
             
-            .addCase(deleteContact.pending, handlePending)
+            .addCase(deleteContact.pending, (state, action) => {
+                state.isLoading = true;
+                state.deleteContactId = action.meta.arg;
+            })
             .addCase(deleteContact.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.error = null;

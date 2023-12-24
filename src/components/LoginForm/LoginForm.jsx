@@ -3,29 +3,44 @@ import { HiEnvelope } from "react-icons/hi2";
 import { BsBoxArrowInLeft } from "react-icons/bs";
 // import { BsBoxArrowRight } from "react-icons/bs";
 // <BsBoxArrowRight />
+import {
+    Form,
+    FormTitle,
+} from "../RegisterForm/RegisterForm.styled";
+
+import {
+    Label,
+    Input,
+    InputSection,
+    SubmitButton,
+} from "../PhoneBook/ContactForm/ContactForm.styled";
+
+import {
+    FormField
+} from "./LoginForm.styled";
 
 function LoginForm() {
     return (
-        <form>
-            <b>Welcome back!</b>
-            <div>
-                <label type="email" htmlFor="userEmail">Email</label>
-                <div>
-                    <input name="userEmail" placeholder="user@email.com"></input>
+        <Form>
+            <FormTitle>Welcome back!</FormTitle>
+            <FormField>
+                <Label type="email" htmlFor="userEmail">Email</Label>
+                <InputSection>
+                    <Input name="userEmail" placeholder="user@email.com"></Input>
                     <HiEnvelope />
-                </div>
-            </div>
-             <div>
-                <label type="password" htmlFor="userPassword">Password</label>
-                <div>
-                    <input name="userPassword" placeholder="********"></input>
+                </InputSection>
+            </FormField>
+             <FormField>
+                <Label type="password" htmlFor="userPassword">Password</Label>
+                <InputSection>
+                    <Input name="userPassword" placeholder="********"></Input>
                     <IoLockClosed />
-                </div>
-            </div>
-            <button type="submit">Login <BsBoxArrowInLeft /> </button>
+                </InputSection>
+            </FormField>
+            <SubmitButton type="submit">Login <BsBoxArrowInLeft /> </SubmitButton>
             {/* <b>New user?</b>
-            <NavLink to="register">Signup Now</NavLink> */}
-        </form>
+            <a to="register">Signup Now</NavLink> */}
+        </Form>
     )
 }
 

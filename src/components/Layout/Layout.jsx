@@ -1,20 +1,20 @@
 import Navbar from "components/NavBar/NavBar";
 import { Outlet } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { HeaderContainer } from "./Layout.styled";
 
 function Layout() {
     return (
         <>
-              <header>
-             <Navbar/>
-        </header>
-        <main>
+            <header> 
+                <HeaderContainer>
+                    <Navbar/>
+                </HeaderContainer>
+            </header>
+            <main>
                 <Outlet/>
-        </main>
-        </>
-      
-    )
-    
+            </main>
+        </>     
+    )   
 }
 
 export default Layout;
