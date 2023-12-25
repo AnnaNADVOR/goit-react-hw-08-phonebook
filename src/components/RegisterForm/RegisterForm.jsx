@@ -1,7 +1,6 @@
 import { BsFillPersonFill, BsCheck2Square} from "react-icons/bs";
 import { IoLockClosed } from "react-icons/io5";
 import { HiEnvelope } from "react-icons/hi2";
-import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Watch } from "react-loader-spinner";
 import { registration } from "../../redux/auth/operation";
