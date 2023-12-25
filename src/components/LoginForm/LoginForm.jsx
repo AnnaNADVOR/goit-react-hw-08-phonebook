@@ -1,8 +1,7 @@
 import { IoLockClosed } from "react-icons/io5";
 import { HiEnvelope } from "react-icons/hi2";
 import { BsBoxArrowInLeft } from "react-icons/bs";
-// import { BsBoxArrowRight } from "react-icons/bs";
-// <BsBoxArrowRight />
+
 import {
     Form,
     FormTitle,
@@ -16,9 +15,11 @@ import {
 } from "../PhoneBook/ContactForm/ContactForm.styled";
 
 import {
-    FormField
+    FormField,
+    LinkNav,
+    LinkNavInfo,
 } from "./LoginForm.styled";
-import { Link } from "react-router-dom";
+
 
 function LoginForm() {
     return (
@@ -39,8 +40,10 @@ function LoginForm() {
                 </InputSection>
             </FormField>
             <SubmitButton type="submit">Login <BsBoxArrowInLeft /> </SubmitButton>
-            <b>New user?</b>
-            <Link to="/register">Signup Now</Link>
+            <LinkNavInfo>
+                <b>New user?</b>
+                <LinkNav to="/register">Signup Now</LinkNav>
+            </LinkNavInfo>            
         </Form>
     )
 }

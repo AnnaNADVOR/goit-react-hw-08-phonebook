@@ -18,6 +18,7 @@ import {
     FormField,
 } from "./RegisterForm.styled";
 import { selectIsLoading } from "../../redux/auth/selectors";
+import { LinkNav, LinkNavInfo } from "components/LoginForm/LoginForm.styled";
 
 
 
@@ -60,8 +61,10 @@ function RegisterForm() {
                     <IoLockClosed />
                 </InputSection>
             </FormField>
-            <p>Already have an account?</p>
-            <Link to='/login'>Login here</Link>
+            <LinkNavInfo>
+                <b>Already have an account?</b>
+                <LinkNav to='/login'>Login here</LinkNav>
+            </LinkNavInfo>
             <SubmitButton type="submit">Signup {isLoading ? <Watch color="#f8b400" /> : <BsCheck2Square />} </SubmitButton>
         </Form>     
     )

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
 
 export const FormField = styled.div `
@@ -5,7 +6,15 @@ export const FormField = styled.div `
     flex-direction: column;
     
     &:nth-of-type(2) {
-        margin-top: 10px;
-       
+        margin-top: 10px;       
     }
+`
+export const LinkNavInfo = styled.div`
+    text-align: center;
+    margin-top: 20px;
+`
+export const LinkNav = styled(Link)`
+    color: ${({ theme }) => theme.colors.accentOrange};
+    font-weight: 400;  
+    margin-left: 10px;    
 `

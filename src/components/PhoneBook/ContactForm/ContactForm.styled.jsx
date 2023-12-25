@@ -69,7 +69,7 @@ export const SubmitButton = styled.button `
     justify-content: space-around;
     min-width: 120px; 
     padding: 8px 16px;
-    margin: 20px auto 20px;
+    margin: 20px auto 0;
     background-color: ${({ theme }) => theme.colors.primaryGreen};
     color: ${({ theme }) => theme.colors.milky};
     border: none;
