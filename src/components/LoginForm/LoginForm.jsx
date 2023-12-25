@@ -18,6 +18,7 @@ import {
 import {
     FormField
 } from "./LoginForm.styled";
+import { Link } from "react-router-dom";
 
 function LoginForm() {
     return (
@@ -38,8 +39,8 @@ function LoginForm() {
                 </InputSection>
             </FormField>
             <SubmitButton type="submit">Login <BsBoxArrowInLeft /> </SubmitButton>
-            {/* <b>New user?</b>
-            <a to="register">Signup Now</NavLink> */}
+            <b>New user?</b>
+            <Link to="/register">Signup Now</Link>
         </Form>
     )
 }

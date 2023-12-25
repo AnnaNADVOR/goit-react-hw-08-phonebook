@@ -1,7 +1,10 @@
 import { BsFillPersonFill, BsCheck2Square} from "react-icons/bs";
 import { IoLockClosed } from "react-icons/io5";
 import { HiEnvelope } from "react-icons/hi2";
-
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Watch } from "react-loader-spinner";
+import { registration } from "../../redux/auth/operation";
 import {
     Label,
     Input,
@@ -14,33 +17,52 @@ import {
     FormTitle,
     FormField,
 } from "./RegisterForm.styled";
+import { selectIsLoading } from "../../redux/auth/selectors";
+
+
 
 function RegisterForm() {
+    const dispatch = useDispatch();
+    const isLoading = useSelector(selectIsLoading);
+    const handleSubmitForm = (event) => {
+        event.preventDefault();
+       
+        const form = event.target;
+        const userCredentials = {
+            name: form.elements.userName.value, 
+            email: form.elements.userEmail.value, 
+            password: form.elements.userPassword.value,   
+        }
+        dispatch(registration(userCredentials));
+        form.reset();
+    } 
     return ( 
-        <Form>
+        <Form onSubmit={handleSubmitForm}>
             <FormTitle>Join us. It`s free!</FormTitle>
             <FormField>
-                <Label type="text" htmlFor="userName">User name</Label>
+                <Label  htmlFor="userName">User name</Label>
                 <InputSection>
-                    <Input name="userName" placeholder="Name Surname"></Input>
+                    <Input type="text" name="userName" placeholder="Name Surname"></Input>
                      <BsFillPersonFill />
                 </InputSection>
             </FormField>
             <FormField>
-                <Label type="email" htmlFor="userEmail">Email</Label>
+                <Label  htmlFor="userEmail">Email</Label>
                 <InputSection>
-                    <Input name="userEmail" placeholder="user@email.com"></Input>
+                    <Input type="email" name="userEmail" placeholder="user@email.com"></Input>
                     <HiEnvelope/>
                 </InputSection>
             </FormField>
             <FormField>
-                <Label type="password" htmlFor="userPassword">Password</Label>
+                <Label  htmlFor="userPassword">Password</Label>
                 <InputSection>
-                    <Input name="userPassword" placeholder="********"></Input>
+                    <Input type="password" name="userPassword" placeholder="********"></Input>
                     <IoLockClosed />
                 </InputSection>
             </FormField>
-            <SubmitButton type="submit">Signup <BsCheck2Square /></SubmitButton>
+            <p>Already have an account?</p>
+            <Link to='/login'>Login here</Link>
+            <SubmitButton type="submit">Signup {isLoading ? <Watch color="#f8b400" /> : <BsCheck2Square />} </SubmitButton>
         </Form>     
     )
 }

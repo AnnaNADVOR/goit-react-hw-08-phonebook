@@ -7,8 +7,13 @@ import {
   Logo,
   LogoPath,
 } from "./NavBar.styled"; 
+import { useAuth } from "../../hooks/useAuth";
+import UserMenu from "../UserMenu/UserMenu";
+
 
 function Navbar() {
+
+  const { isLoggedIn } = useAuth(); 
   return (
     <>
       <Nav>
@@ -16,12 +21,14 @@ function Navbar() {
           <NavItem>
             <Link to="/">Home</Link>  
           </NavItem>
-            <NavItem>
-          <Link to="/contacts"><Logo>Phone<LogoPath>book</LogoPath></Logo></Link>  
-        </NavItem>
-      </NavList>       
-    </Nav>
-    <AuthNav/> 
+          {isLoggedIn && (
+            <NavItem>          
+              <Link to="/contacts"><Logo>Phone<LogoPath>book</LogoPath></Logo></Link>  
+            </NavItem>
+          )}
+        </NavList>       
+      </Nav>
+      {isLoggedIn ? <UserMenu/> : <AuthNav/>}    
     </>
     )
 }

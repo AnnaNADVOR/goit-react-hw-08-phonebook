@@ -34,7 +34,7 @@ function PhonebookPage() {
             <FilterSection>
                 <FilterContainer>
                     <Filter />
-                    {isLoadingPage && !error && <Loader message="Wait. Loading saved contacts"/>}
+                    {isLoadingPage && !error && <Loader message="Wait! Loading saved contacts..."/>}
                     {error && <Message>Something went wrong.</Message>}  
                     <ContactList />
                 </FilterContainer>

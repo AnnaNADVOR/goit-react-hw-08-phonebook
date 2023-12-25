@@ -22,7 +22,7 @@ export default function App() {
           <Route index element={<HomePage/>}/>
           <Route path="/login" element={<LoginPage/>}/>
           <Route path="/register" element={<RegisterPage />} />
-           <Route path="/contacts" element={<PhonebookPage/>} />
+          <Route path="/contacts" element={<PhonebookPage/>} />
         </Route>
       </Routes>
     </>   
