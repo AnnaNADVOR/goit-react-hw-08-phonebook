@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import { selectError, selectIsLoading } from "../../redux/selectors";
+import { selectError, selectIsLoadingPage } from "../../redux/contacts/selectors";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchContacts } from "../../redux/operations";
-import Loader from "components/Loader/Loader";
+import { fetchContacts } from "../../redux/contacts/operations";
 import ContactForm from "components/PhoneBook/ContactForm/ContactForm";
 import Filter from "../../components/PhoneBook/Filter/Filter";
 import ContactList from "components/PhoneBook/ContactList/ContactList";
+import Loader from "components/Loader/Loader";
 
 import {
     BookFormSection,
@@ -13,12 +13,11 @@ import {
     Message,
     FilterSection,
     FilterContainer,
-    InfoContainer,
 } from "./PhonebookPage.styled";
 
 function PhonebookPage() {
-    const loader = useSelector(selectIsLoading);
     const error = useSelector(selectError);
+    const isLoadingPage = useSelector(selectIsLoadingPage);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -35,11 +34,8 @@ function PhonebookPage() {
             <FilterSection>
                 <FilterContainer>
                     <Filter />
-                    {/* <InfoContainer> */}
-                       {/* {loader && !error && <Loader />} */}
+                    {isLoadingPage && !error && <Loader message="Wait. Loading saved contacts"/>}
                     {error && <Message>Something went wrong.</Message>}  
-                    {/* </InfoContainer> */}
-                   
                     <ContactList />
                 </FilterContainer>
             </FilterSection>

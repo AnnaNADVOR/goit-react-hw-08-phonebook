@@ -1,6 +1,7 @@
-import { addContact } from "../../../redux/operations";
+import { addContact } from "../../../redux/contacts/operations";
 import { useDispatch, useSelector } from "react-redux";
 import { Report } from 'notiflix/build/notiflix-report-aio';
+import { Watch } from "react-loader-spinner";
 
 import { BsFillPersonFill, BsFillPersonPlusFill, BsFillTelephoneFill } from "react-icons/bs";
 import {
@@ -12,11 +13,12 @@ import {
     SubmitButton,
     FormTitle,
 } from "./ContactForm.styled";
-import { selectContacts } from "../../../redux/selectors";
+import { selectContacts, selectIsLoadingAdd } from "../../../redux/contacts/selectors";
 
 export default function ContactForm() {
     const dispatch = useDispatch();
     const contacts = useSelector(selectContacts); 
+    const isLoadingAdd = useSelector(selectIsLoadingAdd);
     const handleSubmitForm = (event) => {
         event.preventDefault(); 
         const form = event.target; 
@@ -66,7 +68,7 @@ export default function ContactForm() {
                     </InputSection>                    
             </FormField>                               
             <SubmitButton type="submit">Save
-                <BsFillPersonPlusFill />
+                {isLoadingAdd ? <Watch color="#f8b400"/> : <BsFillPersonPlusFill />}                
             </SubmitButton>
         </Form>        
     )

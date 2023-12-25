@@ -2,15 +2,16 @@ import { BsSearch } from "react-icons/bs";
 import { Section} from "./Filter.styled";
 import { FormField, Label, Input, InputSection } from "../ContactForm/ContactForm.styled";
 import { useSelector, useDispatch } from 'react-redux';
-import { setFilter } from "../../../redux/filterSlice";
-import { selectContacts, selectError, selectFilter, selectIsLoading } from "../../../redux/selectors";
+import { setFilter } from "../../../redux/filter/slice";
+import { selectContacts, selectError, selectIsLoadingPage } from "../../../redux/contacts/selectors";
+import { selectFilter } from "../../../redux/filter/selectors";
 
 import Notification from "../Notification/Notification";
 
 function ContactSearch() { 
     const contacts = useSelector(selectContacts); 
     const filterValue = useSelector(selectFilter); 
-    const loader = useSelector(selectIsLoading);
+    const loader = useSelector(selectIsLoadingPage);
     const error = useSelector(selectError);
     const dispatch = useDispatch(); 
     const onChange = event => {

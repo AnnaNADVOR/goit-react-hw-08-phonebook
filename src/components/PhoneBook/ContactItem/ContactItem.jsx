@@ -1,24 +1,24 @@
 import { BsFillTrash3Fill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
-import { Oval} from 'react-loader-spinner'
-import { deleteContact } from "./../../../redux/operations";
+import { Watch } from "react-loader-spinner";
+import { deleteContact } from "../../../redux/contacts/operations";
 import {
     ContactInfo,
     Name,
     RemoveButton,
 } from "./ContactItem.styled";
-import { selectDeleteContactId, selectIsLoading } from "../../../redux/selectors";
+import { selectDeleteContactId, selectIsLoadingDelete } from "../../../redux/contacts/selectors";
 
 function ContactItem({ contact }) {
     const dispatch = useDispatch(); 
-    const loader = useSelector(selectIsLoading);
-    const dellId = useSelector(selectDeleteContactId);
+    const isLoadingDelete = useSelector(selectIsLoadingDelete);
+    const deleteId = useSelector(selectDeleteContactId);
   
     const onDeleteContact = () => {
         dispatch(deleteContact(contact.id));           
     }
     
-    const dellContact = loader && contact.id===dellId; 
+    const contactToDelete = isLoadingDelete && contact.id===deleteId; 
     return (
         <>            
             <ContactInfo>
@@ -26,7 +26,7 @@ function ContactItem({ contact }) {
                 <p>{contact.number}</p>  
             </ContactInfo>                          
             <RemoveButton onClick={onDeleteContact} type="button"> 
-                {dellContact ? <Oval color="#f8b400" /> : <BsFillTrash3Fill /> }
+                {contactToDelete ? <Watch color="#f8b400"/> : <BsFillTrash3Fill /> }
             </RemoveButton>                       
         </>              
     )

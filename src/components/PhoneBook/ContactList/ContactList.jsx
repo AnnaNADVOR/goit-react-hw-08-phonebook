@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
-
-
-import { selectContacts, selectFilter, selectVibleContacts } from "../../../redux/selectors";
+import { selectContacts, selectVibleContacts } from "../../../redux/contacts/selectors";
+import { selectFilter } from "../../../redux/filter/selectors";
 import ContactItem from "../ContactItem/ContactItem";
 import Notification from "../Notification/Notification";
 

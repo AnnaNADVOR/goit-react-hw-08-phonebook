@@ -1,16 +1,14 @@
-import {ThreeDots } from 'react-loader-spinner';
+import {ThreeDots } from "react-loader-spinner";
 import {
     LoaderContainer,
-} from './Loader.styled';
-function Loader( ) {
+    Message,
+} from "./Loader.styled";
+
+function Loader({message}) {
     return (
         <LoaderContainer>
-            <ThreeDots
-                color='#2c786c'
-                height="50"
-                width="50"
-                radius="6"
-            />            
+           <ThreeDots color="#f8b400"/>
+           <Message>{message}</Message>           
         </LoaderContainer>         
     )
 }
