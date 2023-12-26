@@ -12,6 +12,7 @@ export const FormField = styled.div `
 export const LinkNavInfo = styled.div`
     text-align: center;
     margin-top: 20px;
+    color:  ${({ theme }) => theme.colors.primaryBlack};
 `
 export const LinkNav = styled(Link)`
     color: ${({ theme }) => theme.colors.accentOrange};

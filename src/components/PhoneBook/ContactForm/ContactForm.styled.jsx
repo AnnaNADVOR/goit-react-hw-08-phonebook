@@ -66,7 +66,7 @@ export const InputSection = styled.div `
 export const SubmitButton = styled.button `
     display:flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     min-width: 120px; 
     padding: 8px 16px;
     margin: 20px auto 0;
@@ -78,18 +78,14 @@ export const SubmitButton = styled.button `
     font-weight: 600; 
     letter-spacing: .06em;
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    
-        
-
+         
     :hover, :focus {
-        color: ${({ theme }) => theme.colors.accentOrange};
-        
+        color: ${({ theme }) => theme.colors.accentOrange};        
     }
 
-     svg {
+    svg {
         width: 18px;
         height: 18px; 
-    }
-   
+    }   
 `
 

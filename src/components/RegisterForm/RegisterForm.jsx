@@ -42,21 +42,36 @@ function RegisterForm() {
             <FormField>
                 <Label  htmlFor="userName">User name</Label>
                 <InputSection>
-                    <Input type="text" name="userName" placeholder="Name Surname"></Input>
-                     <BsFillPersonFill />
+                    <Input
+                        type="text"
+                        name="userName"
+                        placeholder="Name Surname"
+                        required
+                    />
+                    <BsFillPersonFill />
                 </InputSection>
             </FormField>
             <FormField>
                 <Label  htmlFor="userEmail">Email</Label>
                 <InputSection>
-                    <Input type="email" name="userEmail" placeholder="user@email.com"></Input>
+                    <Input
+                        type="email"
+                        name="userEmail"
+                        placeholder="user@email.com"
+                        required
+                    />
                     <HiEnvelope/>
                 </InputSection>
             </FormField>
             <FormField>
                 <Label  htmlFor="userPassword">Password</Label>
                 <InputSection>
-                    <Input type="password" name="userPassword" placeholder="********"></Input>
+                    <Input
+                        type="password"
+                        name="userPassword"
+                        placeholder="********"
+                        required
+                    />                        
                     <IoLockClosed />
                 </InputSection>
             </FormField>
@@ -64,7 +79,10 @@ function RegisterForm() {
                 <b>Already have an account?</b>
                 <LinkNav to='/login'>Login here</LinkNav>
             </LinkNavInfo>
-            <SubmitButton type="submit">Signup {isLoading ? <Watch color="#f8b400" /> : <BsCheck2Square />} </SubmitButton>
+            <SubmitButton type="submit">
+                Signup
+                {isLoading ? <Watch color="#f8b400" /> : <BsCheck2Square />}
+            </SubmitButton>
         </Form>     
     )
 }

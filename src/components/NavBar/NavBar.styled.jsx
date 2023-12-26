@@ -9,7 +9,7 @@ export const Nav = styled.nav`
 export const NavList = styled.ul`
     display: flex;
     list-style: none; 
-    
+    margin-right: 20px;
 `
 export const NavItem = styled.li`
   &:not(:last-child){

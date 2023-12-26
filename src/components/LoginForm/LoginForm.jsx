@@ -28,22 +28,31 @@ function LoginForm() {
             <FormField>
                 <Label type="email" htmlFor="userEmail">Email</Label>
                 <InputSection>
-                    <Input name="userEmail" placeholder="user@email.com"></Input>
+                    <Input
+                        name="userEmail"
+                        placeholder="user@email.com"
+                        required
+                    />
                     <HiEnvelope />
                 </InputSection>
             </FormField>
              <FormField>
-                <Label type="password" htmlFor="userPassword">Password</Label>
+                <Label  htmlFor="userPassword">Password</Label>
                 <InputSection>
-                    <Input name="userPassword" placeholder="********"></Input>
+                    <Input
+                        name="userPassword"
+                        type="password"
+                        placeholder="********"
+                        required
+                    />
                     <IoLockClosed />
                 </InputSection>
             </FormField>
-            <SubmitButton type="submit">Login <BsBoxArrowInLeft /> </SubmitButton>
             <LinkNavInfo>
                 <b>New user?</b>
                 <LinkNav to="/register">Signup Now</LinkNav>
-            </LinkNavInfo>            
+            </LinkNavInfo> 
+            <SubmitButton type="submit">Login <BsBoxArrowInLeft /> </SubmitButton>                   
         </Form>
     )
 }
