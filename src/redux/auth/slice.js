@@ -27,7 +27,7 @@ const authSlice = createSlice({
                 state.isLoadingRegister = false; 
                 state.isLoggedIn = true; 
                 state.user = action.payload.user;
-                state.token = action.payload.tocken; 
+                state.token = action.payload.token; 
             })
             .addCase(registration.rejected, (state, action) => {
                 state.isLoadingRegister = false; 
@@ -41,7 +41,7 @@ const authSlice = createSlice({
                 state.isLoadingLogin = false;                
                 state.isLoggedIn = true; 
                 state.user = action.payload.user;
-                state.token = action.payload.tocken; 
+                state.token = action.payload.token; 
             })
             .addCase(logOut.pending, state => {
                 state.isLoadingLogout = true;
@@ -57,10 +57,10 @@ const authSlice = createSlice({
 
 }); 
 
-const PersistConfig = {
+const persistConfig = {
     key: 'auth', 
     storage,
     whitelist: ['token'],
 } 
 
-export const authReducer = persistReducer(PersistConfig, authSlice.reducer); 
+export const authReducer = persistReducer(persistConfig, authSlice.reducer); 

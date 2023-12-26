@@ -5,8 +5,9 @@ export const registration = createAsyncThunk(
     "auth/registration", 
      async (credentials, { rejectWithValue }) => {
     try {
-        const response = await authAPI.registration(credentials);
-        return response.data;
+      const response = await authAPI.registration(credentials);
+      
+        return response;
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -17,8 +18,9 @@ export const logIn = createAsyncThunk(
     "auth/login", 
      async (credentials, { rejectWithValue }) => {
     try {
-        const response = await authAPI.logIn(credentials);
-        return response.data;
+      const response = await authAPI.logIn(credentials);
+      console.log(response)
+      return response;
     } catch (error) {
       return rejectWithValue(error.message);
     }

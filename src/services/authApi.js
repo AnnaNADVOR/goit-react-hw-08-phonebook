@@ -11,14 +11,16 @@ const clearAuthHeader = () => {
 
 export async function registration(credentials) {
     const response = await axios.post("/users/signup", credentials);
+    
     setAuthHeader(response.data.token);
-    return response; 
+    return response.data; 
 }
 
 export async function logIn(credentials) {
     const response = await axios.post("/users/login", credentials);
+    
     setAuthHeader(response.data.token);
-    return response; 
+    return response.data; 
 }
 
 export async function logOut() {
