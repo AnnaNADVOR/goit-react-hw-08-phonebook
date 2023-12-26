@@ -1,32 +1,58 @@
 import { createSlice } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer } from 'redux-persist';
-import { registration } from './operation';
+import {
+    registration,
+    logIn,
+    logOut,
+} from './operation';
 
 const authSlice = createSlice({
     name: 'auth',
     initialState: {
         user: { name: null, email: null },
         token: null,
-        isLoading: false, 
+        isLoadingRegister: false,
+        isLoadingLogin: false, 
+        isLoadingLogout: false, 
         isLoggedIn: false,
         isRefreshing: false,
     },
     extraReducers: builder => {
-        builder.addCase(registration.pending, (state, action) => {
-            state.isLoading = true;
-        })
-          .addCase(registration.fulfilled, (state, action) => {
-                state.isLoading = false; 
-                state.error = null;
+        builder
+            .addCase(registration.pending, (state, action) => {
+            state.isLoadingRegister = true;
+            })
+            .addCase(registration.fulfilled, (state, action) => {
+                state.isLoadingRegister = false; 
                 state.isLoggedIn = true; 
                 state.user = action.payload.user;
                 state.token = action.payload.tocken; 
             })
             .addCase(registration.rejected, (state, action) => {
+                state.isLoadingRegister = false; 
                 state.error = action.payload;
-            }
-            )
+            })
+
+            .addCase(logIn.pending, (state, action) => {
+                state.isLoadingLogin = true;
+            })
+            .addCase(logIn.fulfilled, (state, action) => {
+                state.isLoadingLogin = false;                
+                state.isLoggedIn = true; 
+                state.user = action.payload.user;
+                state.token = action.payload.tocken; 
+            })
+            .addCase(logOut.pending, state => {
+                state.isLoadingLogout = true;
+            })
+            .addCase(logOut.fulfilled, state => {
+                state.isLoadingLogout = false;
+                state.isLoggedIn = false; 
+                state.user = { name: null, email: null };
+                state.token = null; 
+            })
+        
     }
 
 }); 

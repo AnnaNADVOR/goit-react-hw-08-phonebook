@@ -1,5 +1,9 @@
 import { BsBoxArrowRight } from "react-icons/bs";
 import { useAuth } from "hooks/useAuth";
+import { useDispatch, useSelector } from "react-redux";
+import { logOut } from "../../redux/auth/operation";
+import { Watch } from "react-loader-spinner";
+import { selectIsLoadingLogout } from "../../redux/auth/selectors";
 import {
     Button,
     UserInfo,
@@ -7,12 +11,19 @@ import {
 } from "./UserMenu.styled";
 
 function UserMenu() {
+    const dispatch = useDispatch();
+     const isLoading = useSelector(selectIsLoadingLogout);
     const { user } = useAuth(); 
+    const handleClick = () => {
+        dispatch(logOut());
+    }
 
     return (
         < Menu>
             <UserInfo>{user.email}</UserInfo>
-            <Button type="button">Logout <BsBoxArrowRight /></Button>
+            <Button onClick={handleClick} type="button">Logout
+                {isLoading ? <Watch color="#f8b400" /> : <BsBoxArrowRight />}
+            </Button>
         </ Menu>
     )
 }

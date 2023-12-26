@@ -6,10 +6,34 @@ export const registration = createAsyncThunk(
      async (credentials, { rejectWithValue }) => {
     try {
         const response = await authAPI.registration(credentials);
-        console.log(response.data)
-      return response.data;
+        return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
     }
   }
 )
+
+export const logIn = createAsyncThunk(
+    "auth/login", 
+     async (credentials, { rejectWithValue }) => {
+    try {
+        const response = await authAPI.logIn(credentials);
+        return response.data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+)
+
+export const logOut = createAsyncThunk(
+    "auth/logout", 
+    async (_, { rejectWithValue }) => {
+    try {
+        await authAPI.logOut;       
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+)
+
+

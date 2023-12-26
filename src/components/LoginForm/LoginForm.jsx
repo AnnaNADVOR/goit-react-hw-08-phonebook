@@ -1,7 +1,10 @@
 import { IoLockClosed } from "react-icons/io5";
 import { HiEnvelope } from "react-icons/hi2";
 import { BsBoxArrowInLeft } from "react-icons/bs";
-
+import { Watch } from "react-loader-spinner";
+import { useDispatch, useSelector } from "react-redux";
+import { logIn } from "../../redux/auth/operation";
+import { selectIsLoadingLogin } from "../../redux/auth/selectors";
 import {
     Form,
     FormTitle,
@@ -22,8 +25,22 @@ import {
 
 
 function LoginForm() {
+    const dispatch = useDispatch();
+    const isLoading = useSelector(selectIsLoadingLogin);
+    const handleSubmitForm = (event) => {
+        event.preventDefault();
+
+        const form = event.target;
+        const userLoginCredentials = {
+            email: form.elements.userEmail.value, 
+            password: form.elements.userPassword.value,   
+        }
+        dispatch(logIn(userLoginCredentials));
+        form.reset();
+    }
+
     return (
-        <Form>
+        <Form onSubmit={handleSubmitForm}>
             <FormTitle>Welcome back!</FormTitle>
             <FormField>
                 <Label type="email" htmlFor="userEmail">Email</Label>
@@ -52,7 +69,10 @@ function LoginForm() {
                 <b>New user?</b>
                 <LinkNav to="/register">Signup Now</LinkNav>
             </LinkNavInfo> 
-            <SubmitButton type="submit">Login <BsBoxArrowInLeft /> </SubmitButton>                   
+            <SubmitButton type="submit">
+                Login
+                {isLoading ? <Watch color="#f8b400" /> : <BsBoxArrowInLeft />}
+            </SubmitButton>                   
         </Form>
     )
 }

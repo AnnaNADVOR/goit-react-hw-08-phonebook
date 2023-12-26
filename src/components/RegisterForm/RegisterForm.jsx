@@ -16,14 +16,14 @@ import {
     FormTitle,
     FormField,
 } from "./RegisterForm.styled";
-import { selectIsLoading } from "../../redux/auth/selectors";
+import { selectIsLoadingRegister } from "../../redux/auth/selectors";
 import { LinkNav, LinkNavInfo } from "components/LoginForm/LoginForm.styled";
 
 
 
 function RegisterForm() {
     const dispatch = useDispatch();
-    const isLoading = useSelector(selectIsLoading);
+    const isLoading = useSelector(selectIsLoadingRegister);
     const handleSubmitForm = (event) => {
         event.preventDefault();
        
@@ -80,7 +80,7 @@ function RegisterForm() {
                 <LinkNav to='/login'>Login here</LinkNav>
             </LinkNavInfo>
             <SubmitButton type="submit">
-                Signup
+                Signup 
                 {isLoading ? <Watch color="#f8b400" /> : <BsCheck2Square />}
             </SubmitButton>
         </Form>     
