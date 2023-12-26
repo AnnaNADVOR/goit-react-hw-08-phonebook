@@ -16,10 +16,10 @@ export const registration = createAsyncThunk(
 
 export const logIn = createAsyncThunk(
     "auth/login", 
-     async (credentials, { rejectWithValue }) => {
+  async (credentials, { rejectWithValue }) => {
+   console.log(credentials)
     try {
       const response = await authAPI.logIn(credentials);
-      console.log(response)
       return response;
     } catch (error) {
       return rejectWithValue(error.message);

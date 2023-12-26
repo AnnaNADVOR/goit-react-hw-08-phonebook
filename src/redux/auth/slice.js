@@ -20,8 +20,8 @@ const authSlice = createSlice({
     },
     extraReducers: builder => {
         builder
-            .addCase(registration.pending, (state, action) => {
-            state.isLoadingRegister = true;
+            .addCase(registration.pending, state => {
+                state.isLoadingRegister = true;
             })
             .addCase(registration.fulfilled, (state, action) => {
                 state.isLoadingRegister = false; 
@@ -34,7 +34,7 @@ const authSlice = createSlice({
                 state.error = action.payload;
             })
 
-            .addCase(logIn.pending, (state, action) => {
+            .addCase(logIn.pending, state => {
                 state.isLoadingLogin = true;
             })
             .addCase(logIn.fulfilled, (state, action) => {
@@ -43,6 +43,7 @@ const authSlice = createSlice({
                 state.user = action.payload.user;
                 state.token = action.payload.token; 
             })
+            
             .addCase(logOut.pending, state => {
                 state.isLoadingLogout = true;
             })
@@ -51,10 +52,8 @@ const authSlice = createSlice({
                 state.isLoggedIn = false; 
                 state.user = { name: null, email: null };
                 state.token = null; 
-            })
-        
+            })        
     }
-
 }); 
 
 const persistConfig = {
