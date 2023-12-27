@@ -10,7 +10,7 @@ function RegisterPage() {
     return (
         <HelmetProvider>
             <Helmet>
-                <title>Registration</title>
+                <title>Register</title>
             </Helmet>
             <FormSection>
                 <FormContainer> 

@@ -63,7 +63,7 @@ function LoginForm() {
             </FormField>
             <LinkNavInfo>
                 <b>New user?</b>
-                <LinkNav to="/register">Signup Now</LinkNav>
+                <LinkNav to="/register">Sign Up Now</LinkNav>
             </LinkNavInfo> 
             <SubmitButton type="submit">
                 Login

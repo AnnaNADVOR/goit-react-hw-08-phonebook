@@ -77,7 +77,7 @@ function RegisterForm() {
             </FormField>
             <LinkNavInfo>
                 <b>Already have an account?</b>
-                <LinkNav to='/login'>Login here</LinkNav>
+                <LinkNav to='/login'>Login Here</LinkNav>
             </LinkNavInfo>
             <SubmitButton type="submit">
                 Signup 
