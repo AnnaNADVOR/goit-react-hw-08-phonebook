@@ -13,10 +13,19 @@ import LoginPage from "pages/LoginPage/LoginPage";
 import RegisterPage from "pages/RegisterPage/RegisterPage";
 import HomePage from "pages/HomePage/HomePage";
 import PhonebookPage from "pages/PhonebookPage/PhonebookPage";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { refreshUser } from "../../redux/auth/operation";
+import { useAuth } from "../../hooks/useAuth";
 
 export default function App() {
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth(); 
+  useEffect(() => {
+    dispatch(refreshUser())
+  }, [dispatch])
   return (
-    <>
+    !isRefreshing && (
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage/>}/>
@@ -25,6 +34,6 @@ export default function App() {
           <Route path="/contacts" element={<PhonebookPage/>} />
         </Route>
       </Routes>
-    </>   
+    )
   )
 }
