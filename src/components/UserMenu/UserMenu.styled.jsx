@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 
-
 export const Menu = styled.div`
     display:flex; 
     align-items: center; 
@@ -27,7 +26,8 @@ export const Button = styled.button `
     letter-spacing: .06em;
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
          
-    :hover, :focus {
+    :hover, 
+    :focus {
         color: ${({ theme }) => theme.colors.accentOrange};        
     }
 

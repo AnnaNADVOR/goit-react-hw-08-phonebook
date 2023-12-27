@@ -3,7 +3,6 @@ import { selectContacts, selectVibleContacts } from "../../../redux/contacts/sel
 import { selectFilter } from "../../../redux/filter/selectors";
 import ContactItem from "../ContactItem/ContactItem";
 import Notification from "../Notification/Notification";
-
 import {
     List,
     Contact,  
@@ -14,10 +13,6 @@ function ContactList() {
     const contacts = useSelector(selectContacts)
     const filter = useSelector(selectFilter); 
  
-    // if (contacts.length === 0) {
-    //     return;
-    // }
-
     return (
         <List>  
             {contacts.length > 0 && visibleContacts.length === 0

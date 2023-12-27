@@ -1,6 +1,7 @@
 import Navbar from "components/NavBar/NavBar";
 import { Outlet } from "react-router-dom";
-import { HeaderContainer } from "./Layout.styled";
+import { Suspense } from "react";
+import {HeaderContainer} from "./Layout.styled";
 
 function Layout() {
     return (
@@ -11,7 +12,9 @@ function Layout() {
                 </HeaderContainer>
             </header>
             <main>
-                <Outlet/>
+                <Suspense fallback={null}>
+                    <Outlet />
+                </Suspense>
             </main>
         </>     
     )   

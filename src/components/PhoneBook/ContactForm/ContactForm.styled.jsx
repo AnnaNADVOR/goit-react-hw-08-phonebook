@@ -10,7 +10,6 @@ export const FormTitle = styled.p`
     font-weight: 800;
     text-align: center;  
 `
-
 export const FormField = styled.div `
     display: flex;
     flex-direction: column;
@@ -24,7 +23,6 @@ export const Label = styled.label `
     color: ${({ theme }) => theme.colors.primaryBlack};
     margin-bottom: 4px; 
 `
-
 export const Input = styled.input `
     border: 1px solid ${({ theme }) => theme.colors.primaryBlack};
     border-radius: 10px; 
@@ -38,7 +36,7 @@ export const Input = styled.input `
     ::placeholder{
         font-size: 14px; 
         align-items:center;
-        color: ${({ theme }) => theme.colors.primaryGreen};        
+        color: ${({ theme }) => theme.colors.primaryGreen};               
     }
   
     &:hover, :focus  {

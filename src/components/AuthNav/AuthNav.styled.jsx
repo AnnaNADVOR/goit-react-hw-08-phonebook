@@ -7,9 +7,9 @@ export const NavList = styled.ul`
     justify-content: space-around; 
 `
 export const NavItem = styled.li`
-  &:not(:last-child){
-    margin-right: 30px;
-}
+    &:not(:last-child){
+        margin-right: 30px;
+    }
 `
 export const Link = styled(NavLink)`
     text-decoration: none;

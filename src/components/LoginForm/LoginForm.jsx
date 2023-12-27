@@ -9,27 +9,23 @@ import {
     Form,
     FormTitle,
 } from "../RegisterForm/RegisterForm.styled";
-
 import {
     Label,
     Input,
     InputSection,
     SubmitButton,
 } from "../PhoneBook/ContactForm/ContactForm.styled";
-
 import {
     FormField,
     LinkNav,
     LinkNavInfo,
 } from "./LoginForm.styled";
 
-
 function LoginForm() {
     const dispatch = useDispatch();
     const isLoading = useSelector(selectIsLoadingLogin);
     const handleSubmitForm = (event) => {
         event.preventDefault();
-
         const form = event.target;
         const userLoginCredentials = {
             email: form.elements.userEmail.value, 

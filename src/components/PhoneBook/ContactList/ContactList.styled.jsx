@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const List = styled.ul `
     list-style: none;
-    padding: 0 10px;
+    padding: 10px;
     margin: 20px auto 0; 
 `
 export const Contact = styled.li `
@@ -13,7 +13,7 @@ export const Contact = styled.li `
     border: 1px solid ${({ theme }) => theme.colors.primaryBlack}; 
     border-radius: 10px; 
 
-     &:not(:last-child) {
+    &:not(:last-child) {
         margin-bottom: 20px;
     }
 

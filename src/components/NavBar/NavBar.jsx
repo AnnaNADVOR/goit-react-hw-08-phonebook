@@ -12,7 +12,6 @@ import UserMenu from "../UserMenu/UserMenu";
 
 
 function Navbar() {
-
   const { isLoggedIn } = useAuth(); 
   return (
     <>
@@ -30,7 +29,7 @@ function Navbar() {
       </Nav>
       {isLoggedIn ? <UserMenu/> : <AuthNav/>}    
     </>
-    )
+  )
 }
 
 export default Navbar;

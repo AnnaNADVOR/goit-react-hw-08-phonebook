@@ -1,12 +1,23 @@
 import { BsSearch } from "react-icons/bs";
-import { Section} from "./Filter.styled";
-import { FormField, Label, Input, InputSection } from "../ContactForm/ContactForm.styled";
-import { useSelector, useDispatch } from 'react-redux';
+import {
+    useSelector,
+    useDispatch,
+} from "react-redux";
 import { setFilter } from "../../../redux/filter/slice";
-import { selectContacts, selectError, selectIsLoadingPage } from "../../../redux/contacts/selectors";
+import {
+    selectContacts,
+    selectError,
+    selectIsLoadingPage,
+} from "../../../redux/contacts/selectors";
 import { selectFilter } from "../../../redux/filter/selectors";
-
 import Notification from "../Notification/Notification";
+import { Section} from "./Filter.styled";
+import {
+    FormField,
+    Label,
+    Input,
+    InputSection,
+} from "../ContactForm/ContactForm.styled";
 
 function ContactSearch() { 
     const contacts = useSelector(selectContacts); 
@@ -30,9 +41,9 @@ function ContactSearch() {
                         </InputSection>               
                     </FormField>
                 </Section>
-                : <>{
-                    !loader && !error && <Notification message="There is no contacts" />
-                }</>
+                :<>
+                    {!loader && !error && <Notification message="There is no contacts" />}                    
+                </>
             } 
         </>      
     )

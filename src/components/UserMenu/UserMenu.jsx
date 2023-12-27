@@ -1,8 +1,11 @@
 import { BsBoxArrowRight } from "react-icons/bs";
 import { useAuth } from "hooks/useAuth";
-import { useDispatch, useSelector } from "react-redux";
-import { logOut } from "../../redux/auth/operation";
 import { Watch } from "react-loader-spinner";
+import {
+    useDispatch,
+    useSelector,
+} from "react-redux";
+import { logOut } from "../../redux/auth/operation";
 import { selectIsLoadingLogout } from "../../redux/auth/selectors";
 import {
     Button,

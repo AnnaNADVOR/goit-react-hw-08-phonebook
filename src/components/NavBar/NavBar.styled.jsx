@@ -2,19 +2,17 @@ import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
 
 export const Nav = styled.nav`
-    display: flex;   
-    
+    display: flex;       
 `
-
 export const NavList = styled.ul`
     display: flex;
     list-style: none; 
     margin-right: 20px;
 `
 export const NavItem = styled.li`
-  &:not(:last-child){
-    margin-right: 30px;
-}
+    &:not(:last-child){
+        margin-right: 30px;
+    }
 `
 export const Link = styled(NavLink)`
     text-decoration: none;
@@ -29,8 +27,8 @@ export const Link = styled(NavLink)`
     &.active{
         color:${({ theme }) => theme.colors.accentOrange};        
     }
-     &.active>span>span, 
-     &.active>span{
+    &.active>span>span, 
+    &.active>span{
         color:${({ theme }) => theme.colors.accentOrange};        
     }
 `

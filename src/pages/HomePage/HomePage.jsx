@@ -1,3 +1,4 @@
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import {
     HomeSection,
     HomeTitle,
@@ -8,12 +9,17 @@ import {
 
 function HomePage() {
     return (
-        <HomeSection>
-            <HomeContainer>                
-                <HomeTitle>Welcome to <Logo>Phone<LogoPath>book</LogoPath></Logo></HomeTitle>
-                <p>Save the most important contacts to always be in touch!</p>  
-            </HomeContainer>
-        </HomeSection>
+        <HelmetProvider>
+            <Helmet>
+                <title>Home</title>
+            </Helmet>
+            <HomeSection>
+                <HomeContainer>                
+                    <HomeTitle>Welcome to <Logo>Phone<LogoPath>book</LogoPath></Logo></HomeTitle>
+                    <p>Save the most important contacts to always be in touch!</p>  
+                </HomeContainer>
+            </HomeSection>
+        </HelmetProvider>
     )
 }
 

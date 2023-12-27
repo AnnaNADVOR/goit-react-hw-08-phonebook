@@ -9,7 +9,6 @@ export const HomeSection = styled.section`
     text-align: center;
     font-size: 20px; 
 `
-
 export const HomeContainer = styled.div`
     padding-left: 15px;
     padding-right: 15px;

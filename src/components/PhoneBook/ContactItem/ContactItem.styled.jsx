@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 
 export const ContactInfo = styled.div`
 `
-
 export const Name = styled.p `
     margin-bottom: 10px; 
     font-weight: 500;

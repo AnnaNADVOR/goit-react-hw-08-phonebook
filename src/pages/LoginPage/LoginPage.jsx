@@ -1,21 +1,18 @@
-// import {Helmet} from "react-helmet";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import LoginForm from "components/LoginForm/LoginForm";
 import { FormContainer, FormSection } from "pages/RegisterPage/RegisterPage.styled";
 
 function LoginPage() {
     return (
-        <>
- {/* <Helmet>
+        <HelmetProvider>
+            <Helmet>
                 <title>Login</title>
-            </Helmet> */}
-        <FormSection>
-           
+            </Helmet>
+            <FormSection>
                 <FormContainer>
                     <LoginForm/>
-                </FormContainer> 
-        
-
+                </FormContainer>
             </FormSection>
-            </>)
+        </HelmetProvider>)
 }
 export default LoginPage;

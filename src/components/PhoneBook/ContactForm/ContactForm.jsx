@@ -1,8 +1,7 @@
 import { addContact } from "../../../redux/contacts/operations";
 import { useDispatch, useSelector } from "react-redux";
-import { Report } from 'notiflix/build/notiflix-report-aio';
+import { Report } from "notiflix";
 import { Watch } from "react-loader-spinner";
-
 import { BsFillPersonFill, BsFillPersonPlusFill, BsFillTelephoneFill } from "react-icons/bs";
 import {
     Form,
@@ -13,7 +12,10 @@ import {
     SubmitButton,
     FormTitle,
 } from "./ContactForm.styled";
-import { selectContacts, selectIsLoadingAdd } from "../../../redux/contacts/selectors";
+import {
+    selectContacts,
+    selectIsLoadingAdd,
+} from "../../../redux/contacts/selectors";
 
 export default function ContactForm() {
     const dispatch = useDispatch();
@@ -25,12 +27,23 @@ export default function ContactForm() {
         const name = form.elements.contactName.value; 
         const number = form.elements.contactNumber.value; 
         if (contacts.find(contact => contact.name.toLowerCase() === name.toLowerCase())) {
-            Report.info(
+            return Report.info(
                 "Enter a unique name!",
                 `Contact's name "${name}" already exists.`,
-                "OK", 
-            )
-            return;
+                "OK",
+                {
+                    fontFamily: 'inherit',
+                    borderRadius: '10px',
+                    info: {
+                        svgColor: '#f8b400',
+                        buttonBackground: '#2c786c', 
+                        titleColor: '#323232',
+                        messageColor: '#323232',
+                        buttonColor: '#faf5e4',                        
+                        backOverlayColor: 'rgba(43, 117, 106, 0.2)',              
+                    }               
+                },
+            );
         }
         dispatch(addContact({ name, number }));
         form.reset();

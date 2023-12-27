@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { selectError, selectIsLoadingPage } from "../../redux/contacts/selectors";
 import { useDispatch, useSelector } from "react-redux";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { fetchContacts } from "../../redux/contacts/operations";
 import ContactForm from "components/PhoneBook/ContactForm/ContactForm";
 import Filter from "../../components/PhoneBook/Filter/Filter";
@@ -25,7 +26,10 @@ function PhonebookPage() {
     }, [dispatch]);
       
     return (
-        <>
+        <HelmetProvider>
+            <Helmet>
+                <title>Phonebook</title>
+            </Helmet>
             <BookFormSection>
                 <Container>
                     <ContactForm/>  
@@ -39,7 +43,7 @@ function PhonebookPage() {
                     <ContactList />
                 </FilterContainer>
             </FilterSection>
-        </>    
+        </HelmetProvider>    
     )
 }
 

@@ -3,22 +3,24 @@ import { useDispatch, useSelector } from "react-redux";
 import { Watch } from "react-loader-spinner";
 import { deleteContact } from "../../../redux/contacts/operations";
 import {
+    selectDeleteContactId,
+    selectIsLoadingDelete,
+} from "../../../redux/contacts/selectors";
+import {
     ContactInfo,
     Name,
     RemoveButton,
 } from "./ContactItem.styled";
-import { selectDeleteContactId, selectIsLoadingDelete } from "../../../redux/contacts/selectors";
 
 function ContactItem({ contact }) {
     const dispatch = useDispatch(); 
     const isLoadingDelete = useSelector(selectIsLoadingDelete);
     const deleteId = useSelector(selectDeleteContactId);
-  
     const onDeleteContact = () => {
         dispatch(deleteContact(contact.id));           
     }
+    const contactToDelete = isLoadingDelete && contact.id === deleteId; 
     
-    const contactToDelete = isLoadingDelete && contact.id===deleteId; 
     return (
         <>            
             <ContactInfo>
