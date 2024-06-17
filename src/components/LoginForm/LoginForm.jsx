@@ -34,16 +34,17 @@ function LoginForm() {
         dispatch(logIn(userLoginCredentials));
         form.reset();
     }
-
+ 
     return (
         <Form onSubmit={handleSubmitForm}>
             <FormTitle>Welcome back!</FormTitle>
             <FormField>
-                <Label type="email" htmlFor="userEmail">Email</Label>
+                <Label htmlFor="userEmail">Email</Label>
                 <InputSection>
                     <Input
                         name="userEmail"
-                        placeholder="user@email.com"
+                        type="email" 
+                        placeholder="user@email.com"                        
                         required
                     />
                     <HiEnvelope />
